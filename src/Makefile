@@ -4,7 +4,7 @@ LATEX=latexmk -lualatex
 .PHONY: all clean force-build
 
 # define default targets for `make
-all: main_clase_1.pdf main_clase_2.pdf main_clase_3.pdf
+all: main_clase_1.pdf
 	# main_clase_1.pdf
 
 clean:
@@ -30,14 +30,6 @@ force-build:
 main_clase_1.pdf: force-build
 	TEXINPUTS=$(PWD)/:$(PWD)/clase_1:$(TEXINPUTS) \
 	lualatex clase_1/main_clase_1.tex
-
-main_clase_2.pdf: force-build
-	TEXINPUTS=$(PWD)/:$(PWD)/clase_2:$(TEXINPUTS) \
-	lualatex clase_2/main_clase_2.tex
-
-main_clase_3.pdf: force-build
-	TEXINPUTS=$(PWD)/:$(PWD)/clase_3:$(TEXINPUTS) \
-	$(LATEX) clase_3/main_clase_3.tex
 
 images/feedback-form-qr.png:
 	echo https://forms.gle/8b82uYx1ZYbvKZQQA | qrencode -t png -o $@

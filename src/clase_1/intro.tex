@@ -12,3 +12,128 @@
     
 \end{frame}
 
+\begin{frame}{Ejemplo de Aplicación: Análisis de Imágenes Médicas}
+    \begin{block}{Objetivo}
+        Sistema web que permite a profesionales médicos subir imágenes radiográficas
+        y recibir un diagnóstico automático basado en un modelo de Deep Learning:
+    \end{block}
+
+    \begin{columns}
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Backend}
+                \begin{itemize}
+                    \item Python (Flask, PyTorch, OpenCV, psycopg2)
+                    \item API para subir imágenes
+                    \item Procesamiento con modelo preentrenado
+                    \item Almacenamiento de metadatos en PostgreSQL
+                \end{itemize}
+            \end{block}
+        \end{column}
+
+        \begin{column}{0.48\textwidth}
+            \begin{block}{Otros Componentes}
+                \begin{itemize}
+                    \item \textbf{Base de datos (PostgreSQL)}: usuarios y resultados
+                    \item \textbf{Frontend (React + Axios)}: interfaz web
+                    \item \textbf{Redis}: cache de predicciones
+                \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Ejemplo de aplicacion: Requisitos}
+    \begin{block}{Python y librerías}
+        \begin{itemize}
+            \item Python 3.10+ (con entorno virtual configurado)
+            \item Flask (versiones compatibles con Python 3.10)
+            \item PyTorch (versión que soporte la GPU/CPU del sistema)
+            \item OpenCV (compilación con soporte de imágenes y video)
+            \item psycopg2 (requiere librerías de PostgreSQL instaladas en el sistema)
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Dependencias del sistema}
+        \begin{itemize}
+            \item \texttt{gcc}, \texttt{g++}, \texttt{make}
+            \item \texttt{libpq-dev}, \texttt{libjpeg-dev}, \texttt{zlib1g-dev}
+            \item Configuración de drivers CUDA/cuDNN si se usa GPU
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Ejemplo de aplicacion: Requisitos}
+    \begin{block}{Base de Datos}
+        \begin{itemize}
+            \item PostgreSQL 14+ (instalación, usuarios, roles, configuración de puertos)
+            \item Configuración de backups y permisos
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Frontend}
+        \begin{itemize}
+            \item Node.js 18+ y npm
+            \item Librerías de React y Axios (con dependencias propias)
+            \item Posible conflicto de versiones entre proyectos
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Cache}
+        \begin{itemize}
+            \item Redis (instalación, configuración de persistencia y memoria)
+            \item Gestión de puertos y compatibilidad con el backend
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Ejemplo de aplicacion: Requisitos}
+    \begin{figure}[ht]
+      \begin{minipage}{1.3\linewidth}
+          \includegraphics[height=2.6in]{images/shinji-meme.png}
+      \end{minipage}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Beneficios de Docker}
+    \begin{block}{Solución}
+        \begin{itemize}
+            \item En lugar de instalar manualmente todas las dependencias en nuestra máquina, Docker permite levantar un entorno aislado con todo preconfigurado y listo para usar.
+            \item Cada componente se ejecuta en su propio contenedor, aislado, y se comunica de manera controlada con los demás servicios.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}{Beneficios de Docker}
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.48\textwidth}
+            \setbeamercolor{block title}{bg=blue!70,fg=white}
+            \setbeamercolor{block body}{bg=blue!10,fg=black}
+            \begin{block}{Aislamiento}
+                Cada componente corre en su propio contenedor, evitando conflictos de librerías y versiones.
+            \end{block}
+
+            \setbeamercolor{block title}{bg=green!70,fg=white}
+            \setbeamercolor{block body}{bg=green!10,fg=black}
+            \begin{block}{Reproducibilidad}
+                El entorno completo puede levantarse igual en cualquier máquina, garantizando que funcione siempre.
+            \end{block}
+        \end{column}
+
+        \begin{column}{0.48\textwidth}
+            \setbeamercolor{block title}{bg=orange!70,fg=white}
+            \setbeamercolor{block body}{bg=orange!10,fg=black}
+            \begin{block}{Facilidad}
+                Todo se inicia con un solo comando: \texttt{docker-compose up}, sin instalaciones complejas.
+            \end{block}
+
+            \setbeamercolor{block title}{bg=red!70,fg=white}
+            \setbeamercolor{block body}{bg=red!10,fg=black}
+            \begin{block}{Escalabilidad}
+                Contenedores separados permiten escalar y migrar servicios fácilmente.
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+
