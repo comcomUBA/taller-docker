@@ -123,7 +123,7 @@
             \setbeamercolor{block title}{bg=orange!70,fg=white}
             \setbeamercolor{block body}{bg=orange!10,fg=black}
             \begin{block}{Facilidad}
-                Todo se inicia con un solo comando: \texttt{docker-compose up}, sin instalaciones complejas.
+                Todo se inicia con un solo comando: sin instalaciones complejas.
             \end{block}
 
             \setbeamercolor{block title}{bg=red!70,fg=white}
@@ -135,5 +135,333 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}
+        \frametitle{Contenedores}
+        \framesubtitle{Definición}
+    
+        \begin{itemize}
+            \item ¿Es un tipo de virtualización? \pause No, no son una virtualización completa. \pause
+            \item ¿Cómo funciona? \pause Se apoya en funciones del kernel de linux (como Namespaces, Cgroups y OverlayFS). \pause
+        \end{itemize}
+    
+        \begin{figure}
+            \captionsetup{
+                justification=centering,
+                font=scriptsize,
+                width=0.8\textwidth
+            }
+            \includegraphics[width=0.6\textwidth]{images/container_com_0.pdf}
+        \end{figure}
+    \end{frame}
+% ---------------------------------------------------------------------------- %
+    \begin{frame}
+        \frametitle{Contenedores}
+        \framesubtitle{Definición}
+    
+        \begin{itemize}
+            \item ¿Es un tipo de virtualización? No, no son una virtualización completa
+            \item ¿Cómo funciona? Se apoya en funciones del kernel de linux (como Namespaces, Cgroups y OverlayFS)
+        \end{itemize}
+    
+        \begin{figure}
+            \captionsetup{
+                justification=centering,
+                font=scriptsize,
+                width=0.8\textwidth
+            }
+            \includegraphics[width=0.6\textwidth]{images/container_com_1.pdf}
+        \end{figure}
+    \end{frame}
+% ---------------------------------------------------------------------------- %
+    \begin{frame}
+        \frametitle{Contenedores}
+        \framesubtitle{Definición}
+        
+        \begin{figure}
+            \captionsetup{
+                justification=centering,
+                font=scriptsize,
+                width=0.8\textwidth
+            }
+            \includegraphics[width=\textwidth]{images/container_so_hosted.pdf}
+        \end{figure}
+    \end{frame}
+% ---------------------------------------------------------------------------- %
+\section{Imágenes}
+% ---------------------------------------------------------------------------- %
+    \begin{frame}
+        \frametitle{Imágenes}
+        \framesubtitle{Definición}
+    
+        \begin{itemize}
+            \item Imágen de VM (VM Image): \pause Es un archivo que contiene un disco virtual que tiene instalado un sistema operativo, que el hipervisor la arranca como si fuese un servidor físico. \pause
+            \item Imagen de container (Container Image): \pause Es es un archivo que incluye todos los archivos, binarios, bibliotecas y configuraciones, para poder ejecutar un contenedor a través de un container engine. \pause
+        \end{itemize}
+        \begin{block}{Imagen}
+            Una imagen puede tener:
+            \begin{itemize}
+                \item SO
+                \item Software
+                \item App
+            \end{itemize}
+        \end{block}
+    \end{frame}
 
+% ---------------------------------------------------- %
+    \begin{frame}
+        \frametitle{Imágenes}
+        \framesubtitle{Definición}
+    
+        \begin{figure}
+            \captionsetup{
+                justification=centering,
+                font=scriptsize,
+                width=1.5\textwidth
+            }
+            \includegraphics[width=\textwidth]{images/docker-process.jpg}
+        \end{figure}
+
+        \begin{block}{Contenedores}
+            \begin{itemize}
+                \item Escribimos un dockerfile que es un recetario para crear una imagen.
+                \item Generamos un build para generar la imagen.
+                \item Un contenedor es la ejecucion activa de una imagen.  
+            \end{itemize}
+        \end{block}
+    \end{frame}
+
+% ---------------------------------------------------- %
+\begin{frame}
+    \frametitle{¿Cómo podemos compartir nuestras imágenes?}
+    \framesubtitle{Registry}
+
+    \begin{block}{Registry de contenedores}
+        Un \textbf{registry} es un servicio donde podemos:
+        \begin{itemize}
+            \item Almacenar imágenes de contenedores.
+            \item Compartirlas con otros usuarios o equipos.
+            \item Versionarlas y administrarlas de forma centralizada.
+        \end{itemize}
+        Así como un repositorio de código guarda programas, 
+        un registry guarda las imágenes listas para ejecutar.
+    \end{block}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Ejemplos de registries de imágenes}
+    \framesubtitle{El rol de Docker Hub}
+
+    \begin{itemize}
+        \item \textbf{Docker Hub}: el más popular.
+        \pause
+        \item GitHub Container Registry (GHCR)
+        \item GitLab Container Registry
+        \item Amazon Elastic Container Registry (ECR)
+        \item Google Artifact/Container Registry (GAR/GCR)
+        \item Azure Container Registry (ACR)
+        \item Quay.io, Harbor, JFrog Artifactory
+    \end{itemize}
+
+    \begin{block}{Enfoque}
+        Aunque existen muchas opciones, 
+        \textbf{Docker Hub es el estándar de facto} y el que usaremos en este taller.
+    \end{block}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Motor de contenedores}
+    \framesubtitle{Almacenamiento de imágenes}
+
+    \begin{block}{}
+        \begin{itemize}
+            \item docker run \<image\_name\> \textit{\# Crea y ejecuta un contenedor a partir de una imagen.}
+            \item docker start|stop \<container\_name\> \textit{\# Inicia o para un container.}
+            \item docker rm \<container\_name\> \textit{\# Remueve el contenedor.}
+            \item docker ps \textit{\# Lista los contenedores que están ejecutando.}
+            \item docker container stats \textit{\# Muestra el estado del uso de los recursos.}
+            \item docker exec \<container\_name\> \<command\> \textit{\# Ejecuta el comando dentro del contenedor.}
+            \item docker logs \<container\_name\> \textit{\# Muestra los logs del contenedor.}
+        \end{itemize}
+    \end{block}
+        
+        \footnotetext{\textbf{https://docs.docker.com/reference/cli/docker/}}   
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Dockerfile}
+    \framesubtitle{Comandos}
+        \begin{block}{}
+        \begin{itemize}
+            \item FROM: Crear una nueva etapa de compilación a partir de una imagen base.
+            \item WORKDIR: Cambiar directorio de trabajo.
+            \item RUN: Ejecutar comandos de compilación.
+            \item COPY: Copiar archivos y directorios.
+            \item EXPOSE: Describe en qué puertos está escuchando tu aplicación.
+            \item CMD: Especificar comandos predeterminados.
+            \item ...
+        \end{itemize}
+        \end{block}
+        \footnotetext{\textbf{https://docs.docker.com/reference/dockerfile/}}   
+    \end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Motor de contenedores}
+    \framesubtitle{Puertos}
+    \begin{block}{}
+        \begin{itemize}
+            \item Los contenedores tambien manejan su propia red interna.
+            \item Si queremos comunicarnos con el contenedor, podemos exponer puertos hacia nuestro host
+            \item Una de las maneras de hacerlo es con "-p" en el comando de docker run.
+        \end{itemize}
+    \end{block}{}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{¿Cómo funcionan los volúmenes en Docker?}
+    \framesubtitle{Persistencia de datos}
+
+    \begin{block}{Definición}
+        Un \textbf{volumen} es un mecanismo de Docker para almacenar datos 
+        fuera del ciclo de vida de un contenedor.  
+        Sirven para que la información \textbf{no se pierda} al detener o eliminar un contenedor.
+    \end{block}
+
+    \begin{itemize}
+        \item Los datos se almacenan en el host (por defecto en \texttt{/var/lib/docker/volumes/}).
+        \item Se pueden compartir entre varios contenedores.
+        \item Separan la \textbf{aplicación} (contenedor) de sus \textbf{datos}.
+    \end{itemize}
+
+    \pause
+    \begin{block}{Ejemplo}
+        \texttt{docker run -v ~/data:/app/data myapp}
+        
+        \begin{itemize}
+            \item \texttt{~/data} → carpeta en el host.
+            \item \texttt{/app/data} → carpeta dentro del contenedor.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Variables de entorno en Docker}
+    \framesubtitle{Parametrización de contenedores}
+
+    \begin{block}{¿Qué es una variable de entorno?}
+        Una \textbf{variable de entorno} es un par \texttt{NOMBRE=VALOR} 
+        que se almacena en el sistema operativo y que las aplicaciones 
+        pueden leer para modificar su comportamiento sin cambiar el código.
+    \end{block}
+
+    \begin{itemize}
+        \item Permiten parametrizar la configuración de programas.
+        \item Ejemplo típico: base de datos, puerto, modo debug, usuario, contraseña.
+        \item Se pueden definir al crear un contenedor y son accesibles desde dentro del mismo.
+    \end{itemize}
+
+    \pause
+    \begin{block}{Uso en Docker}
+        \texttt{docker run -e NOMBRE\_VAR=valor imagen} \\
+        Ejemplo: \texttt{docker run -e MYSQL\_ROOT\_PASSWORD=secret mysql}
+        
+        \begin{itemize}
+            \item \texttt{MYSQL\_ROOT\_PASSWORD} es la variable de entorno.
+            \item \texttt{secret} es el valor que se le asigna.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{¿Para qué sirven las variables de entorno en Docker?}
+    \framesubtitle{Parametrización de contenedores por el usuario}
+
+    \begin{block}{Idea principal}
+        Las variables de entorno permiten al usuario \textbf{configurar un contenedor} 
+        sin necesidad de modificar la imagen ni el código de la aplicación.
+    \end{block}
+
+    \begin{itemize}
+        \item Configurar contraseñas, nombres de usuario, puertos o rutas de archivos.
+        \item Activar o desactivar modos de operación (ej. modo debug).
+        \item Permiten que la misma imagen funcione en distintos entornos 
+              (desarrollo, testing, producción) solo cambiando las variables.
+    \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{¿Qué es Docker Compose?}
+    \framesubtitle{Automatización de contenedores}
+
+    \begin{block}{Definición}
+        \textbf{Docker Compose} es una herramienta que permite definir y ejecutar 
+        aplicaciones multicontenedor mediante un archivo de configuración (\texttt{docker-compose.yml}).
+    \end{block}
+
+    \begin{itemize}
+        \item Permite describir contenedores, redes, volúmenes y variables de entorno de forma declarativa.
+        \item Sustituye la necesidad de escribir múltiples comandos \texttt{docker run} a mano.
+        \item Facilita levantar, detener y escalar aplicaciones completas con un solo comando:
+              \texttt{docker-compose up} y \texttt{docker-compose down}.
+        \item Mantiene toda la configuración de la aplicación en un solo archivo, fácil de versionar y compartir.
+    \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{¿Cómo funcionan los networks en Docker?}
+    \framesubtitle{Conexión entre contenedores}
+
+    \begin{block}{Definición}
+        Un \textbf{network} en Docker es una red virtual que conecta contenedores 
+        entre sí y con el host, de manera aislada y controlada.
+    \end{block}
+
+    \begin{itemize}
+        \item \textbf{bridge} (por defecto): cada contenedor recibe una IP propia 
+              y puede comunicarse con otros usando \textbf{DNS interno de Docker}, 
+              es decir, por \textbf{nombre de contenedor} en lugar de IP.
+        \item \textbf{host}: el contenedor comparte directamente la red del host 
+              (no tiene IP separada).
+        \item \textbf{none}: sin acceso a red, solo \texttt{localhost}.
+    \end{itemize}
+
+    \pause
+    \begin{block}{Ejemplo}
+        \texttt{docker network create mi\_red} \\
+        \texttt{docker run -d --name web --network mi\_red nginx} \\
+        \texttt{docker run -it --rm --network mi\_red alpine ping web}
+    \end{block}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{¿Cómo funcionan los networks en Docker?}
+    \framesubtitle{Conexión entre contenedores}
+    \begin{figure}
+            \captionsetup{
+                justification=centering,
+                font=scriptsize,
+                width=0.7\textwidth
+            }
+            \includegraphics[width=0.6\textwidth]{images/docker-network.jpg}
+        \end{figure}
+\end{frame}
 

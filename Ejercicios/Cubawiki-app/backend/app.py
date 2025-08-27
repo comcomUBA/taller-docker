@@ -17,7 +17,7 @@ def create_app():
     # Crear tablas al iniciar
     with app.app_context():
         db.create_all()
-        print("✅ Base de datos creada exitosamente!")
+        print("Base de datos creada exitosamente!")
     
     # Rutas de la API
     @app.route('/api/items', methods=['GET'])

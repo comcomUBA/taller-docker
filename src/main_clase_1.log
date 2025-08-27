@@ -1,7 +1,7 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2025.3.2)  25 AUG 2025 12:22
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/Debian)  (format=lualatex 2025.8.26)  26 AUG 2025 21:13
  restricted system commands enabled.
 **clase_1/main_clase_1.tex
-(/home/user/Documents/docker-taller/taller-docker/src/clase_1/main_clase_1.tex
+(/home/user/Descargas/docker/taller-docker/src/clase_1/main_clase_1.tex
 LaTeX2e <2022-11-01> patch level 1
 Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
 Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
@@ -40,7 +40,7 @@ Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'. L3 programm
 ing layer <2023-01-16>
 Inserting `tracingstacklevels' in `input_level_string'.
-(/home/user/Documents/docker-taller/taller-docker/src/header.tex
+(/home/user/Descargas/docker/taller-docker/src/header.tex
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2022/09/13 v3.68 A class for typesetting presentations
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
@@ -744,90 +744,90 @@ Package: babel 2022/12/26 3.84 The Babel package
 \l@dumylang=\language2
 Package babel Info: Non-standard hyphenation setup on input line 118.
 \l@nohyphenation=\language3
-\l@turkmen=\language4
-\l@monogreek=\language5
-\l@sanskrit=\language6
-\l@bokmal=\language7
-\l@italian=\language8
-\l@interlingua=\language9
-\l@armenian=\language10
-\l@hungarian=\language11
-\l@hindi=\language12
-\l@serbian=\language13
-\l@churchslavonic=\language14
-\l@kurmanji=\language15
-\l@welsh=\language16
-\l@tamil=\language17
-\l@spanish=\language18
-\l@telugu=\language19
-\l@dutch=\language20
-\l@pali=\language21
-\l@romanian=\language22
-\l@friulan=\language23
-\l@schoolfinnish=\language24
-\l@afrikaans=\language25
-\l@usenglishmax=\language26
-\l@mongolian=\language27
-\l@bengali=\language28
-\l@ibycus=\language29
-\l@ukrainian=\language30
-\l@marathi=\language31
-\l@ukenglish=\language32
-\l@romansh=\language33
-\l@classiclatin=\language34
-\l@malayalam=\language35
-\l@russian=\language36
-\l@nynorsk=\language37
-\l@ngerman-x-2022-03-16=\language38
-\l@lithuanian=\language39
-\l@swedish=\language40
-\l@assamese=\language41
-\l@belarusian=\language42
-\l@swissgerman=\language43
-\l@croatian=\language44
-\l@georgian=\language45
-\l@arabic=\language46
-\l@portuguese=\language47
-\l@czech=\language48
-\l@latin=\language49
-\l@german-x-2022-03-16=\language50
-\l@ancientgreek=\language51
-\l@galician=\language52
-\l@german=\language53
-\l@icelandic=\language54
-\l@esperanto=\language55
-\l@oriya=\language56
-\l@basque=\language57
-\l@slovenian=\language58
-\l@slovak=\language59
-\l@danish=\language60
-\l@macedonian=\language61
-\l@pinyin=\language62
-\l@uppersorbian=\language63
-\l@ngerman=\language64
-\l@gujarati=\language65
-\l@serbianc=\language66
-\l@coptic=\language67
-\l@liturgicallatin=\language68
-\l@thai=\language69
-\l@turkish=\language70
-\l@mongolianlmc=\language71
-\l@greek=\language72
-\l@occitan=\language73
-\l@irish=\language74
-\l@indonesian=\language75
-\l@farsi=\language76
-\l@finnish=\language77
-\l@polish=\language78
-\l@latvian=\language79
-\l@kannada=\language80
-\l@piedmontese=\language81
-\l@catalan=\language82
-\l@bulgarian=\language83
-\l@estonian=\language84
-\l@panjabi=\language85
-\l@french=\language86
-\l@ethiopic=\language87
+\l@icelandic=\language4
+\l@kannada=\language5
+\l@galician=\language6
+\l@interlingua=\language7
+\l@bengali=\language8
+\l@marathi=\language9
+\l@spanish=\language10
+\l@catalan=\language11
+\l@hungarian=\language12
+\l@thai=\language13
+\l@slovenian=\language14
+\l@welsh=\language15
+\l@esperanto=\language16
+\l@german=\language17
+\l@serbianc=\language18
+\l@churchslavonic=\language19
+\l@tamil=\language20
+\l@russian=\language21
+\l@serbian=\language22
+\l@belarusian=\language23
+\l@ancientgreek=\language24
+\l@turkmen=\language25
+\l@slovak=\language26
+\l@romansh=\language27
+\l@portuguese=\language28
+\l@macedonian=\language29
+\l@estonian=\language30
+\l@uppersorbian=\language31
+\l@liturgicallatin=\language32
+\l@swissgerman=\language33
+\l@piedmontese=\language34
+\l@ethiopic=\language35
+\l@swedish=\language36
+\l@pinyin=\language37
+\l@finnish=\language38
+\l@ngerman=\language39
+\l@pali=\language40
+\l@mongolian=\language41
+\l@kurmanji=\language42
+\l@afrikaans=\language43
+\l@ukenglish=\language44
+\l@ngerman-x-2022-03-16=\language45
+\l@ukrainian=\language46
+\l@czech=\language47
+\l@italian=\language48
+\l@german-x-2022-03-16=\language49
+\l@latvian=\language50
+\l@danish=\language51
+\l@croatian=\language52
+\l@panjabi=\language53
+\l@georgian=\language54
+\l@bulgarian=\language55
+\l@basque=\language56
+\l@dutch=\language57
+\l@bokmal=\language58
+\l@assamese=\language59
+\l@romanian=\language60
+\l@gujarati=\language61
+\l@polish=\language62
+\l@classiclatin=\language63
+\l@telugu=\language64
+\l@oriya=\language65
+\l@french=\language66
+\l@farsi=\language67
+\l@mongolianlmc=\language68
+\l@hindi=\language69
+\l@malayalam=\language70
+\l@arabic=\language71
+\l@indonesian=\language72
+\l@schoolfinnish=\language73
+\l@coptic=\language74
+\l@friulan=\language75
+\l@greek=\language76
+\l@armenian=\language77
+\l@monogreek=\language78
+\l@usenglishmax=\language79
+\l@occitan=\language80
+\l@irish=\language81
+\l@sanskrit=\language82
+\l@turkish=\language83
+\l@lithuanian=\language84
+\l@latin=\language85
+\l@nynorsk=\language86
+\l@ibycus=\language87
 \babelcatcodetablenum=\catcodetable12
 \bbl@pattcodes=\catcodetable13
 )
@@ -845,9 +845,9 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language32). Reported on input line 105.
+(babel)             (\language44). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language32). Reported on input line 108.
+(babel)             (\language44). Reported on input line 108.
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
 Package babel Info: Importing font and identification data for english
@@ -1154,12 +1154,12 @@ Package fontspec Info: Font family 'NotoColorEmoji(0)' created for font 'Noto
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 
-(/home/user/Documents/docker-taller/taller-docker/src/beamerthemetud.sty
-(/home/user/Documents/docker-taller/taller-docker/src/beamerfontthemetud.sty)
-(/home/user/Documents/docker-taller/taller-docker/src/beamercolorthemetud.sty)
-(/home/user/Documents/docker-taller/taller-docker/src/beamerinnerthemetud.sty)
-(/home/user/Documents/docker-taller/taller-docker/src/beamerouterthemetudhorizo
-ntal.sty)) (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
+(/home/user/Descargas/docker/taller-docker/src/beamerthemetud.sty
+(/home/user/Descargas/docker/taller-docker/src/beamerfontthemetud.sty)
+(/home/user/Descargas/docker/taller-docker/src/beamercolorthemetud.sty)
+(/home/user/Descargas/docker/taller-docker/src/beamerinnerthemetud.sty)
+(/home/user/Descargas/docker/taller-docker/src/beamerouterthemetudhorizontal.st
+y)) (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2022/07/12 v3.18b programmable bibliographies (PK/MW)
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
@@ -1399,7 +1399,7 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
 
-(/home/user/Documents/docker-taller/taller-docker/src/main_clase_1.aux)
+(/home/user/Descargas/docker/taller-docker/src/main_clase_1.aux)
 \openout1 = main_clase_1.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 2.
@@ -1487,8 +1487,8 @@ e
 ))
 Package hyperref Info: Link coloring OFF on input line 2.
 
-(/home/user/Documents/docker-taller/taller-docker/src/main_clase_1.out)
-(/home/user/Documents/docker-taller/taller-docker/src/main_clase_1.out)
+(/home/user/Descargas/docker/taller-docker/src/main_clase_1.out)
+(/home/user/Descargas/docker/taller-docker/src/main_clase_1.out)
 \@outlinefile=\write8
 
 \openout8 = main_clase_1.out
@@ -1659,7 +1659,7 @@ Package biblatex Info: ... file 'main_clase_1.bbl' not found.
 No file main_clase_1.bbl.
 Package biblatex Info: Reference section=0 on input line 2.
 Package biblatex Info: Reference segment=0 on input line 2.
-(/home/user/Documents/docker-taller/taller-docker/src/main_clase_1.nav)
+(/home/user/Descargas/docker/taller-docker/src/main_clase_1.nav)
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1675,7 +1675,7 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
 (Font)              Font shape `TU/lmss/m/sl' tried instead on input line 2.
 
-(/home/user/Documents/docker-taller/taller-docker/src/titlepage.tex
+(/home/user/Descargas/docker/taller-docker/src/titlepage.tex
 
 ! LaTeX Error: There's no line here to end.
 
@@ -1686,7 +1686,7 @@ Type  H <return>  for immediate help.
 l.11 \end{frame}
               
 ? 
-<images/logo-taller.png, id=13, 843.90282pt x 300.3722pt>
+<images/logo-taller.png, id=17, 843.90282pt x 300.3722pt>
 File: images/logo-taller.png Graphic file (type png)
 <use images/logo-taller.png>
 Package luatex.def Info: images/logo-taller.png  used on input line 11.
@@ -1702,9 +1702,9 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
 (Font)              Font shape `TU/lmss/m/sl' tried instead on input line 11.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</home/user/Documents/docker-
-taller/taller-docker/src/images/logo-taller.png>])
-(/home/user/Documents/docker-taller/taller-docker/src/clase_1/intro.tex
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}</home/user/Descargas/docker/
+taller-docker/src/images/logo-taller.png>])
+(/home/user/Descargas/docker/taller-docker/src/clase_1/intro.tex
 Overfull \hbox (0.85355pt too wide) in paragraph at lines 13--13
 []| []  
  []
@@ -1725,22 +1725,373 @@ Overfull \hbox (0.85355pt too wide) in paragraph at lines 13--13
 
 [4
 
-])
-(/home/user/Documents/docker-taller/taller-docker/src/clase_1/git_local.tex
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 4--4
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 43--43
 []| []  
  []
 
 [5
 
-])
-(/home/user/Documents/docker-taller/taller-docker/src/clase_1/fuentes_clase_1.t
-ex
-Overfull \hbox (0.85355pt too wide) in paragraph at lines 6--6
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 63--63
 []| []  
  []
 
 [6
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 87--87
+[]| []  
+ []
+
+[7
+
+]
+<images/shinji-meme.png, id=63, 1445.4pt x 813.0375pt>
+File: images/shinji-meme.png Graphic file (type png)
+<use images/shinji-meme.png>
+Package luatex.def Info: images/shinji-meme.png  used on input line 95.
+(luatex.def)             Requested size: 334.04503pt x 187.90244pt.
+
+Overfull \hbox (99.01651pt too wide) in paragraph at lines 95--95
+ []$ 
+ []
+
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 95--95
+[]| []  
+ []
+
+[8
+
+</home/user/Descargas/docker/taller-docker/src/images/shinji-meme.png>]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 104--104
+[]| []  
+ []
+
+[9
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 136--136
+[]| []  
+ []
+
+[10
+
+]
+warning  (file images/container_com_0.pdf) (pdf inclusion): PDF inclusion: found
+ PDF version '1.7', but at most version '1.5' allowed
+<images/container_com_0.pdf, id=87, 168.63pt x 125.5089pt>
+File: images/container_com_0.pdf Graphic file (type pdf)
+<use images/container_com_0.pdf>
+Package luatex.def Info: images/container_com_0.pdf  used on input line 155.
+(luatex.def)             Requested size: 198.03304pt x 147.39635pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 155--155
+[]| []  
+ []
+
+[11
+
+</home/user/Descargas/docker/taller-docker/src/images/container_com_0.pdf>]
+File: images/container_com_0.pdf Graphic file (type pdf)
+<use images/container_com_0.pdf>
+Package luatex.def Info: images/container_com_0.pdf  used on input line 155.
+(luatex.def)             Requested size: 198.03304pt x 147.39635pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 155--155
+[]| []  
+ []
+
+[12
+
+]
+File: images/container_com_0.pdf Graphic file (type pdf)
+<use images/container_com_0.pdf>
+Package luatex.def Info: images/container_com_0.pdf  used on input line 155.
+(luatex.def)             Requested size: 198.03304pt x 147.39635pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 155--155
+[]| []  
+ []
+
+[13
+
+]
+File: images/container_com_0.pdf Graphic file (type pdf)
+<use images/container_com_0.pdf>
+Package luatex.def Info: images/container_com_0.pdf  used on input line 155.
+(luatex.def)             Requested size: 198.03304pt x 147.39635pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 155--155
+[]| []  
+ []
+
+[14
+
+]
+File: images/container_com_0.pdf Graphic file (type pdf)
+<use images/container_com_0.pdf>
+Package luatex.def Info: images/container_com_0.pdf  used on input line 155.
+(luatex.def)             Requested size: 198.03304pt x 147.39635pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 155--155
+[]| []  
+ []
+
+[15
+
+]
+warning  (file images/container_com_1.pdf) (pdf inclusion): PDF inclusion: found
+ PDF version '1.7', but at most version '1.5' allowed
+<images/container_com_1.pdf, id=122, 210.7875pt x 125.5089pt>
+File: images/container_com_1.pdf Graphic file (type pdf)
+<use images/container_com_1.pdf>
+Package luatex.def Info: images/container_com_1.pdf  used on input line 174.
+(luatex.def)             Requested size: 198.03304pt x 117.91708pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 174--174
+[]| []  
+ []
+
+[16
+
+</home/user/Descargas/docker/taller-docker/src/images/container_com_1.pdf>]
+warning  (file images/container_so_hosted.pdf) (pdf inclusion): PDF inclusion: f
+ound PDF version '1.7', but at most version '1.5' allowed
+<images/container_so_hosted.pdf, id=136, 558.16531pt x 161.64389pt>
+File: images/container_so_hosted.pdf Graphic file (type pdf)
+<use images/container_so_hosted.pdf>
+Package luatex.def Info: images/container_so_hosted.pdf  used on input line 188
+.
+(luatex.def)             Requested size: 330.05171pt x 95.58365pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 188--188
+[]| []  
+ []
+
+[17
+
+</home/user/Descargas/docker/taller-docker/src/images/container_so_hosted.pdf>]
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 208--208
+[]| []  
+ []
+
+[18
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 208--208
+[]| []  
+ []
+
+[19
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 208--208
+[]| []  
+ []
+
+[20
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 208--208
+[]| []  
+ []
+
+[21
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 208--208
+[]| []  
+ []
+
+[22
+
+]
+<images/docker-process.jpg, id=176, 1918.16624pt x 524.96124pt>
+File: images/docker-process.jpg Graphic file (type jpg)
+<use images/docker-process.jpg>
+Package luatex.def Info: images/docker-process.jpg  used on input line 231.
+(luatex.def)             Requested size: 330.05171pt x 90.32361pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 231--231
+[]| []  
+ []
+
+[23
+
+</home/user/Descargas/docker/taller-docker/src/images/docker-process.jpg>]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 248--248
+[]| []  
+ []
+
+[24
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 271--271
+[]| []  
+ []
+
+[25
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 271--271
+[]| []  
+ []
+
+[26
+
+]
+! Undefined control sequence.
+\beamer@doifinframe ...temize} \item docker run \<
+                                                  image\_name\> \textit {\# ...
+l.292 \end{frame}
+               
+? 
+! Undefined control sequence.
+\beamer@doifinframe ... \item docker start|stop \<
+                                                  container\_name\> \textit ...
+l.292 \end{frame}
+               
+? 
+! Undefined control sequence.
+\beamer@doifinframe ...tainer.} \item docker rm \<
+                                                  container\_name\> \textit ...
+l.292 \end{frame}
+               
+? 
+! Undefined control sequence.
+\beamer@doifinframe ...rsos.} \item docker exec \<
+                                                  container\_name\> \<comman...
+l.292 \end{frame}
+               
+? 
+! Undefined control sequence.
+\beamer@doifinframe ...exec \<container\_name\> \<
+                                                  command\> \textit {\# Ejec...
+l.292 \end{frame}
+               
+? 
+! Undefined control sequence.
+\beamer@doifinframe ...edor.} \item docker logs \<
+                                                  container\_name\> \textit ...
+l.292 \end{frame}
+               
+? 
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 292--292
+[]| []  
+ []
+
+[27
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 311--311
+[]| []  
+ []
+
+[28
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 325--325
+[]| []  
+ []
+
+[29
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 354--354
+[]| []  
+ []
+
+[30
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 354--354
+[]| []  
+ []
+
+[31
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 384--384
+[]| []  
+ []
+
+
+Overfull \vbox (6.0097pt too high) detected at line 384
+ []
+
+[32
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 384--384
+[]| []  
+ []
+
+
+Overfull \vbox (6.0097pt too high) detected at line 384
+ []
+
+[33
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 403--403
+[]| []  
+ []
+
+[34
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 423--423
+[]| []  
+ []
+
+[35
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 451--451
+[]| []  
+ []
+
+[36
+
+]
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 451--451
+[]| []  
+ []
+
+[37
+
+]
+<images/docker-network.jpg, id=254, 1110.1475pt x 906.38625pt>
+File: images/docker-network.jpg Graphic file (type jpg)
+<use images/docker-network.jpg>
+Package luatex.def Info: images/docker-network.jpg  used on input line 466.
+(luatex.def)             Requested size: 198.03304pt x 161.67647pt.
+
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 466--466
+[]| []  
+ []
+
+[38
+
+</home/user/Descargas/docker/taller-docker/src/images/docker-network.jpg>])
+(/home/user/Descargas/docker/taller-docker/src/clase_1/git_local.tex
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 4--4
+[]| []  
+ []
+
+[39
+
+])
+(/home/user/Descargas/docker/taller-docker/src/clase_1/fuentes_clase_1.tex
+Overfull \hbox (0.85355pt too wide) in paragraph at lines 6--6
+[]| []  
+ []
+
+[40
 
 ])
 \tf@nav=\write9
@@ -1752,33 +2103,36 @@ Overfull \hbox (0.85355pt too wide) in paragraph at lines 6--6
 \tf@snm=\write11
 
 \openout11 = main_clase_1.snm
- (/home/user/Documents/docker-taller/taller-docker/src/main_clase_1.aux)
+ (/home/user/Descargas/docker/taller-docker/src/main_clase_1.aux)
 Package rerunfilecheck Info: File `main_clase_1.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: EF37D5B79E7E712C5300C9E7F9CB0728;86.
 Package logreq Info: Writing requests to 'main_clase_1.run.xml'.
 
 \openout1 = main_clase_1.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 47689 strings out of 478382
+ 47943 strings out of 478382
  125161,1977958 words of node,token memory allocated
  2986 words of node memory still in use:
    29 hlist, 9 vlist, 5 rule, 8 disc, 5 local_par, 4 math, 66 glue, 8 kern, 18 p
 enalty, 127 glyph, 141 attribute, 78 glue_spec, 72 attribute_list, 4 write, 2 pd
 f_start_link, 2 pdf_end_link, 2 pdf_action, 20 pdf_colorstack nodes
-   avail lists: 1:1,2:826,3:326,4:163,5:151,6:31,7:1739,8:9,9:314,10:13,11:139
- 66131 multiletter control sequences out of 65536+600000
- 63 fonts using 8873543 bytes
+   avail lists: 1:1,2:2011,3:812,4:246,5:217,6:53,7:2736,8:9,9:593,10:16,11:172
+ 66256 multiletter control sequences out of 65536+600000
+ 66 fonts using 9263071 bytes
  133i,19n,118p,692b,1730s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf/fonts/opentype/public/lm/lmsans10-regular.otf></usr/share/texm
-f/fonts/opentype/public/lm/lmsans8-regular.otf></usr/share/texmf/fonts/opentype/
-public/lm/lmsans12-regular.otf></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb>
-Output written on main_clase_1.pdf (6 pages, 184411 bytes).
+</usr/share/texmf/fonts/opentype/public/lm/lmsans10-oblique.otf></usr/share/texm
+f/fonts/opentype/public/lm/lmsans9-regular.otf></usr/share/texmf/fonts/opentype/
+public/lm/lmmono10-regular.otf></usr/share/texmf/fonts/opentype/public/lm/lmsans
+10-bold.otf></usr/share/texmf/fonts/opentype/public/lm/lmsans10-regular.otf></us
+r/share/texmf/fonts/opentype/public/lm/lmsans8-regular.otf></usr/share/texmf/fon
+ts/opentype/public/lm/lmsans12-regular.otf></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main_clase_1.pdf (40 pages, 2529079 bytes).
 
-PDF statistics: 82 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 131072)
- 26 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 330 PDF objects out of 1000 (max. 8388607)
+ 236 compressed objects within 3 object streams
+ 82 named destinations out of 1000 (max. 131072)
+ 74 words of extra memory for PDF output out of 10000 (max. 100000000)
 

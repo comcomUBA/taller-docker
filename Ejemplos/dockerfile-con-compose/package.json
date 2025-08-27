@@ -1,0 +1,13 @@
+{
+  "name": "node-docker-example",
+  "version": "1.0.0",
+  "description": "Ejemplo básico de Node.js con Docker",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "NODE_ENV=development node app.js"
+  },
+  "keywords": ["node", "docker", "example"],
+  "author": "Juan Perez",
+  "license": "MIT"
+}
