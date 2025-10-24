@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
   # Servicio de PostgreSQL
   db:
     image: postgres:13
-    container_name: flask_db
+    container_name: cubaweek_db
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -25,7 +23,7 @@ services:
   # Servicio de Flask
   backend:
     build: ./backend
-    container_name: flask_app
+    container_name: cubaweek_backend_app
     environment:
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     ports:
@@ -42,11 +40,14 @@ services:
   # Servicio de Flask
   frontend:
     build: ./frontend
-    container_name: react_app
+    container_name: cubaweek_frontend_app
     ports:
       - "5173:5173"
+    environment:
+      - NODE_ENV=development
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     networks:
       - flask_network
 

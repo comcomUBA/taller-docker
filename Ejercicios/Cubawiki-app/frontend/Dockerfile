@@ -7,6 +7,7 @@ WORKDIR /app
 # Copiar package.json y package-lock.json
 COPY package*.json ./
 
+ENV NODE_ENV=development
 # Instalar dependencias
 RUN npm install
 
