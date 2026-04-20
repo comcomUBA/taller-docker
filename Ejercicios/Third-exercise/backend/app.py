@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://ollama:11434")
-MODEL = os.environ.get("MODEL", "tinyllama")
+MODEL = os.environ.get("MODEL", "qwen2:0.5b")
 
 
 def wait_for_ollama():
@@ -18,30 +18,15 @@ def wait_for_ollama():
             time.sleep(2)
 
 
-def pull_model():
-    r = requests.get(f"{OLLAMA_HOST}/api/tags")
-    models = r.json().get("models", [])
-    if any(m["name"].startswith(MODEL) for m in models):
-        print(f"Modelo {MODEL} ya disponible.", flush=True)
-        return
-
-    print(f"Descargando modelo {MODEL}...", flush=True)
-    with requests.post(
-        f"{OLLAMA_HOST}/api/pull",
-        json={"name": MODEL},
-        stream=True
-    ) as r:
-        for line in r.iter_lines():
-            if line:
-                print(line.decode(), flush=True)
-    print("Modelo listo.", flush=True)
-
-
 wait_for_ollama()
-pull_model()
 
 app = Flask(__name__)
 CORS(app)
+
+
+@app.route("/api/health")
+def health():
+    return jsonify({"status": "ok"})
 
 
 @app.route("/api/chat", methods=["POST"])

@@ -1,10 +1,19 @@
 # Ejercicio 2
 
-La aplicación en este directorio es un contador de visitas: cada vez que
-entrás a http://localhost:5000 incrementa un número almacenado en Redis.
+La aplicación en este directorio es un bloc de notas: podés escribir notas
+desde el navegador y quedan guardadas como archivos .txt en el servidor.
+Tiene dos servicios:
+
+  - web:   app Flask que guarda las notas como archivos y sirve la interfaz
+  - redis: guarda el índice de notas para listarlas rápido
 
 El Dockerfile ya está escrito. Tu tarea es crear el docker-compose.yml
-para orquestar los dos servicios: la app Flask y Redis.
+para orquestar los dos servicios.
+
+## Puertos
+
+El servicio web expone el puerto 5000. Mapealo al puerto 5000 de tu máquina
+para poder acceder desde http://localhost:5000.
 
 ## Imagen de Redis
 
@@ -17,12 +26,21 @@ comunicarse con otros. Para que dos servicios se hablen, tienen que
 compartir una red.
 
 En Docker Compose, cuando ponés dos servicios en la misma red, pueden
-encontrarse usando el nombre del servicio como hostname. Es decir, si
-tu servicio de Redis se llama "redis", la app puede conectarse a él
-simplemente usando "redis" como dirección.
+encontrarse usando el nombre del servicio como hostname. La app ya está
+configurada para conectarse a "redis" como hostname.
 
-La app ya está configurada para hacer esto. Tu trabajo es asegurarte
-de que ambos servicios compartan la misma red en el compose.
+## Volúmenes: bind mount
+
+Las notas se guardan dentro del contenedor en /app/notas. Si bajás los
+servicios con "docker compose down" y volvés a levantarlos, las notas
+se pierden porque el sistema de archivos del contenedor es efímero.
+
+Un bind mount conecta una carpeta de tu máquina con una carpeta dentro
+del contenedor. Todo lo que el contenedor escribe ahí aparece directamente
+en tu máquina, y sobrevive al ciclo de vida del contenedor.
+
+Agregá un bind mount al servicio web que conecte la carpeta ./notas de
+tu máquina con /app/notas dentro del contenedor.
 
 ## Comandos útiles
 
