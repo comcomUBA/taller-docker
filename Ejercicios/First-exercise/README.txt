@@ -1,19 +1,17 @@
-# Aplicación Flask simple
+# Flask Figlet App
 
-## Descripción
-Aplicación de ejemplo en Flask que devuelve un mensaje en JSON.
+API en Flask que genera ASCII art a partir de un nombre usando figlet.
 
-## Requisitos
-- Python 3.10+
-- pip
+## Requisitos del sistema
+- figlet
+- Python 3.12+
 
-## Ejecución manual
-1. Instalar dependencias:
-   ```bash
-   pip install -r requirements.txt```
+## Instalación
 
-2. Ejecutar la app:
-    ```bash
-    python app.py```
+    pip install -r requirements.txt
 
-3. Acceder en el navegador a http://localhost:5000.
+## Uso
+
+    python app.py
+
+La app queda disponible en http://localhost:5000.

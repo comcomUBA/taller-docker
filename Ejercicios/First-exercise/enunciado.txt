@@ -1,0 +1,33 @@
+# Ejercicio 1
+
+Tenés una aplicación Flask en este directorio. Tu tarea es dockerizarla.
+
+1. Leé el README para entender qué hace la app y qué necesita para correr.
+
+2. Buscá en https://hub.docker.com una imagen base oficial de Python
+   que te permita instalar paquetes del sistema.
+
+3. Tomá como referencia el Dockerfile del ejemplo de Node.js y escribí
+   uno nuevo para esta aplicación.
+
+4. Construí la imagen y verificá que la app responde en http://localhost:5000.
+
+## Comandos útiles
+
+Construir la imagen:
+    docker build -t mi-app .
+
+Correr el contenedor:
+    docker run mi-app
+
+Ver los contenedores corriendo:
+    docker ps
+
+Ver los logs del contenedor:
+    docker logs <container_name>
+
+Detener el contenedor:
+    docker stop <container_name>
+
+Entrar al contenedor para inspeccionar:
+    docker exec -it <container_name> bash

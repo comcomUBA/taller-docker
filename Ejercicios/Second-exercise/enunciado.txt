@@ -1,0 +1,39 @@
+# Ejercicio 2
+
+La aplicación en este directorio es un contador de visitas: cada vez que
+entrás a http://localhost:5000 incrementa un número almacenado en Redis.
+
+El Dockerfile ya está escrito. Tu tarea es crear el docker-compose.yml
+para orquestar los dos servicios: la app Flask y Redis.
+
+## Imagen de Redis
+
+Usá la imagen oficial: redis:7-alpine
+
+## Redes en Docker Compose
+
+Por defecto, cada contenedor tiene su propia red aislada y no puede
+comunicarse con otros. Para que dos servicios se hablen, tienen que
+compartir una red.
+
+En Docker Compose, cuando ponés dos servicios en la misma red, pueden
+encontrarse usando el nombre del servicio como hostname. Es decir, si
+tu servicio de Redis se llama "redis", la app puede conectarse a él
+simplemente usando "redis" como dirección.
+
+La app ya está configurada para hacer esto. Tu trabajo es asegurarte
+de que ambos servicios compartan la misma red en el compose.
+
+## Comandos útiles
+
+Levantar los servicios:
+    docker compose up --build
+
+Bajar los servicios:
+    docker compose down
+
+Ver los logs:
+    docker compose logs
+
+Ver los contenedores corriendo:
+    docker compose ps
