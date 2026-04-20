@@ -4,48 +4,108 @@
 
 \mode<presentation>
 
-% Corporate colors
+% ---- Colors ----
 \definecolor{tudCyan}{RGB}{61,152,222}
 \definecolor{tudBlack}{RGB}{0,0,0}
 \definecolor{tudWhite}{RGB}{255,255,255}
-
-% Basic colors
 \definecolor{tudSeaGreen}{RGB}{111,189,165}
 \definecolor{tudGreen}{RGB}{39,131,142}
-\definecolor{tudDarkBlue}{RGB}{34,70,122}
-\definecolor{tudPurple}{RGB}{36,46,131}
-\definecolor{tudTurquoise}{RGB}{50,154,179}
-\definecolor{tudSkyBlue}{RGB}{130,187,206}
-
-% Accent colors
-\definecolor{tudLavender}{RGB}{121,150,180}
-\definecolor{tudOrange}{RGB}{216,130,62}
-\definecolor{tudWarmPurple}{RGB}{110,50,122}
-\definecolor{tudFuchsia}{RGB}{178,72,146}
-\definecolor{tudBrightGreen}{RGB}{183,200,34}
 \definecolor{tudYellow}{RGB}{247,234,151}
-
 \definecolor{customBlockColor}{RGB}{200,228,250}
 \definecolor{customAlertColor}{RGB}{31,112,173}
 
-\DeclareOptionBeamer{verticalbar}[true]{\def\beamer@themeTUD@verticalbar{#1}}
-\ExecuteOptionsBeamer{verticalbar=false}
+\setbeamercolor{normal text}{fg=tudBlack}
+\setbeamercolor{alerted text}{fg=customAlertColor}
+\setbeamercolor{example text}{fg=tudGreen}
+\setbeamercolor*{structure}{fg=tudCyan}
+\setbeamercolor*{decoration}{fg=tudWhite,bg=tudCyan}
+\setbeamercolor*{palette primary}{use=decoration,fg=decoration.fg,bg=decoration.bg}
+\setbeamercolor*{palette secondary}{parent=palette primary}
+\setbeamercolor*{palette tertiary}{parent=palette secondary}
+\setbeamercolor*{palette quaternary}{use=palette primary,bg=palette primary.fg}
+\setbeamercolor{separation line}{bg=tudBlack}
+\setbeamercolor{fine separation line}{parent=separation line}
+\setbeamercolor{upper separation line foot}{parent=fine separation line}
+\setbeamercolor{middle separation line foot}{parent=separation line,bg=tudWhite}
+\setbeamercolor{lower separation line foot}{parent=separation line}
+\setbeamercolor{titlelike}{parent=structure}
+\setbeamercolor{title block body}{fg=tudWhite,bg=tudBlack}
+\setbeamercolor{title}{parent=title block body}
+\setbeamercolor{subtitle}{parent=title}
+\setbeamercolor{institute}{parent=structure}
+\setbeamercolor{author}{parent=title block body}
+\setbeamercolor{date}{parent=author}
+\setbeamercolor{block title}{parent=normal text,bg=customBlockColor}
+\setbeamercolor{block title alerted}{parent=block title,bg=tudYellow}
+\setbeamercolor{block title example}{parent=block title,bg=tudSeaGreen}
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!50!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+\setbeamercolor{item projected}{use=item,fg=tudWhite,bg=item.fg}
 
-\ProcessOptionsBeamer
+% ---- Fonts ----
+\setbeamerfont{normal text}{family=\sffamily}
+\setbeamerfont{structure}{family=\rmfamily}
+\setbeamerfont{title}{series=\sffamily,size=\normalsize}
+\setbeamerfont{subtitle}{series=\sffamily,size=\normalsize}
+\setbeamerfont{institute}{parent=structure,series=\sffamily,size=\scriptsize}
+\setbeamerfont{author}{size=\footnotesize}
+\setbeamerfont{date}{parent=author}
+\setbeamerfont{frametitle}{series=\sffamily}
+\setbeamerfont{section in toc}{parent=structure,family=\sffamily}
+\setbeamerfont{block body}{parent=normal text}
+\setbeamerfont{item}{parent=normal text}
 
-%% convert options to tex booleans
-\newif\ifverticalbar\csname verticalbar\beamer@themeTUD@verticalbar\endcsname
+% ---- Inner theme ----
+\defbeamertemplate*{title page}{}{
+    \begin{center}
+        {\color{tudCyan}\Large\inserttitle}\par
+        \vspace{0.5cm}
+        {\small\insertauthor}\par
+        \vspace{0.8cm}
+        {\scriptsize\insertinstitute}\par
+        \vspace{0.5cm}
+        {\scriptsize\insertdate}
+    \end{center}
+}
 
-\usefonttheme{tud}
-\usecolortheme{tud}
-\useinnertheme[shadow,verticalbar=\beamer@themeTUD@verticalbar]{tud}
-\ifverticalbar
-	\useoutertheme{tudvertical}
-\else
-	\useoutertheme{tudhorizontal}
-\fi
+\addtobeamertemplate{frametitle}{\hspace*{0.03cm}}{}
 
-% remove document icon falling off the list of references
+\setbeamertemplate{blocks}[rounded][]
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{sections/subsections in toc}[circle]
 \setbeamertemplate{bibliography item}{}
-\mode
-<all>
+
+% ---- Outer theme ----
+\setbeamercolor{author in head/foot}{parent=palette tertiary}
+\setbeamercolor{title in head/foot}{parent=palette secondary}
+\setbeamercolor{date in head/foot}{parent=palette primary}
+\setbeamercolor{section in head/foot}{parent=palette tertiary}
+\setbeamercolor{subsection in head/foot}{parent=palette primary}
+\setbeamercolor{logo in head/foot}{parent=palette quaternary}
+\setbeamercolor*{navigation symbols}{parent=palette primary}
+\setbeamercolor*{navigation symbols dimmed}{parent=palette primary,fg=parent.fg!20!parent.bg}
+
+\setbeamersize{text margin left=0.6cm}
+\setbeamersize{text margin right=0.6cm}
+
+\defbeamertemplate*{sidebar left}{}{}
+\defbeamertemplate*{sidebar right}{}{}
+
+\defbeamertemplate*{footline}{}{
+    \leavevmode
+    \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=2.5ex,center]{date in head/foot}
+    \begin{columns}[t]
+        \column{.44\textwidth}
+        \begin{minipage}[c]{2cm}
+            \textcolor{white}{Taller de Docker}
+            \vspace{0.11cm}
+        \end{minipage}
+        \column{.44\textwidth}
+        \hfill \insertframenumber{} / \inserttotalframenumber
+    \end{columns}
+    \end{beamercolorbox}
+    \vskip0pt
+}
+
+\mode<all>

@@ -30,6 +30,7 @@ force-build:
 main_clase_1.pdf: force-build
 	TEXINPUTS=$(PWD)/:$(PWD)/clase_1:$(TEXINPUTS) \
 	lualatex clase_1/main_clase_1.tex
+	@$(MAKE) clean
 
 images/feedback-form-qr.png:
 	echo https://forms.gle/8b82uYx1ZYbvKZQQA | qrencode -t png -o $@
