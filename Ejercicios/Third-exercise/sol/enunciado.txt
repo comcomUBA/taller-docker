@@ -42,7 +42,7 @@ El backend ya está configurado para conectarse a "llama" como hostname.
 Docker Compose puede leer variables de un archivo .env en el mismo directorio
 y usarlas en el compose con la sintaxis ${VARIABLE}.
 
-Creá un archivo .env con:
+Modifica un archivo .env con:
 
     MODEL=qwen2:0.5b
     OLLAMA_HOST=http://llama:11434
