@@ -1,0 +1,108 @@
+# Ejercicio 3
+
+En este directorio hay un chatbot con inteligencia artificial que corre
+completamente en tu máquina, sin usar ninguna API externa. Tiene tres servicios:
+
+  - llama:    servidor de IA (Ollama con el modelo qwen2:0.5b)
+  - backend:  API en Flask que recibe mensajes y consulta a llama
+  - frontend: interfaz web servida con Nginx
+
+Los tres Dockerfiles ya están escritos. Tu tarea es crear el docker-compose.yml
+para orquestar los tres servicios.
+
+## Puertos
+
+  - llama expone el puerto 11434. Mapealo al 11434 de tu máquina.
+  - backend expone el puerto 5000. Mapealo al 5000 de tu máquina.
+  - frontend expone el puerto 80. Mapealo al 80 de tu máquina.
+
+La interfaz queda disponible en http://localhost.
+
+## Redes y aislamiento
+
+En el ejercicio anterior todos los servicios compartían una sola red. Acá vas
+a usar dos redes para aislar los servicios según quién necesita hablar con quién:
+
+  - ai_network:  llama y backend
+  - web_network: backend y frontend
+
+El frontend puede hablarle al backend, pero no tiene ruta directa a llama.
+El backend está en las dos redes y actúa de puerta entre ellas.
+
+Un servicio puede pertenecer a más de una red:
+
+    networks:
+      - red-uno
+      - red-dos
+
+El backend ya está configurado para conectarse a "llama" como hostname.
+
+## Archivo .env y variables de entorno
+
+Docker Compose puede leer variables de un archivo .env en el mismo directorio
+y usarlas en el compose con la sintaxis ${VARIABLE}.
+
+Creá un archivo .env con:
+
+    MODEL=qwen2:0.5b
+    OLLAMA_HOST=http://llama:11434
+
+El backend necesita esas dos variables de entorno. Leelas del .env usando
+la sintaxis ${VARIABLE} para los dos casos.
+
+## Volúmenes: named volumes
+
+En el ejercicio anterior usaste un bind mount (./notas:/app/notas): conectaste
+una carpeta de tu máquina con el contenedor. Eso tiene sentido cuando querés
+acceder a los archivos directamente desde tu sistema.
+
+Para datos que Docker gestiona de forma autónoma —como los modelos que descarga
+Ollama— conviene un named volume: un volumen con nombre que Docker crea y
+administra, sin una carpeta visible en tu proyecto.
+
+Se declara así en el compose:
+
+    services:
+      mi-servicio:
+        volumes:
+          - nombre-del-volumen:/ruta/dentro/del/contenedor
+
+    volumes:
+      nombre-del-volumen:
+
+Ollama guarda sus modelos en /root/.ollama. Agregá un named volume llamado
+ollama_data montado en esa ruta en el servicio llama.
+
+## Orden de arranque
+
+Con tres servicios que dependen unos de otros, el orden importa: llama tiene
+que estar corriendo para que el backend pueda conectarse, y el backend tiene
+que estar corriendo para que el frontend tenga sentido.
+
+depends_on le indica a Docker Compose en qué orden arrancar los servicios:
+
+    depends_on:
+      - nombre-del-servicio
+
+  - backend debe arrancar después de llama
+  - frontend debe arrancar después de backend
+
+Nota: depends_on garantiza el orden de arranque, no que el servicio esté
+"listo". El backend ya maneja esto internamente esperando a que Ollama responda.
+
+## Comandos útiles
+
+Construir las imágenes (hacelo antes de levantar, tarda unos minutos):
+    docker compose build
+
+Levantar los servicios:
+    docker compose up
+
+Ver los logs de un servicio:
+    docker compose logs backend
+
+Ver el estado de los contenedores:
+    docker compose ps
+
+Bajar los servicios (el volumen ollama_data persiste):
+    docker compose down

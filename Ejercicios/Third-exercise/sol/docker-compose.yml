@@ -1,0 +1,44 @@
+services:
+  llama:
+    build: ./llama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - ai_network
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - OLLAMA_HOST=${OLLAMA_HOST}
+      - MODEL=${MODEL}
+      - METRICS_ENDPOINT=${METRICS_ENDPOINT}
+      - METRICS_TOKEN=${METRICS_TOKEN}
+      - METRICS_ENGINE=${METRICS_ENGINE}
+      - METRICS_SAMPLE=${METRICS_SAMPLE}
+    depends_on:
+      - llama
+    networks:
+      - ai_network
+      - web_network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - web_network
+
+volumes:
+  ollama_data:
+
+networks:
+  ai_network:
+    driver: bridge
+  web_network:
+    driver: bridge

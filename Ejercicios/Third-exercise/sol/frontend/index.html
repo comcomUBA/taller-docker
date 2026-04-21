@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot Local</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Totally IA - 100% real no fake 🤖</h1>
+  <div id="chat">
+    <div id="messages"></div>
+    <div id="input-area">
+      <input
+        type="text"
+        id="message-input"
+        placeholder="Escribí un mensaje..."
+        onkeydown="if(event.key==='Enter') sendMessage()"
+      >
+      <button id="send-btn" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
