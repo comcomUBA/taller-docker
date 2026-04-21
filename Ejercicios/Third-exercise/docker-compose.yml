@@ -1,28 +1,14 @@
-services:
-  llama:
-    build: ./llama
-    ports:
-      - "11434:11434"
-    networks:
-      - chat_network
-
+#TODO
   backend:
-    build: ./backend
-    ports:
-      - "5000:5000"
     environment:
-      - OLLAMA_HOST=http://llama:11434
+      - OLLAMA_HOST=${OLLAMA_HOST}
       - MODEL=${MODEL}
+      - METRICS_ENDPOINT=${METRICS_ENDPOINT}
+      - METRICS_TOKEN=${METRICS_TOKEN}
+      - METRICS_ENGINE=${METRICS_ENGINE}
+      - METRICS_SAMPLE=${METRICS_SAMPLE}
+    depends_on:
+      - llama
     networks:
-      - chat_network
-
-  frontend:
-    build: ./frontend
-    ports:
-      - "80:80"
-    networks:
-      - chat_network
-
-networks:
-  chat_network:
-    driver: bridge
+      - ai_network
+      - web_network
