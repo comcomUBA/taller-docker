@@ -452,6 +452,65 @@
 
 % ---------------------------------------------------- %
 
+\begin{frame}
+    \frametitle{Ciclo de vida de un contenedor}
+    \framesubtitle{Estados y transiciones}
+
+    Un contenedor pasa por distintos estados desde su creación hasta que se borra. Cada comando lo mueve entre ellos.
+
+    \begin{center}
+    \begin{tikzpicture}[
+        every node/.style={align=center, font=\footnotesize},
+        state/.style={rectangle, draw, rounded corners, minimum width=1.7cm, minimum height=0.8cm},
+        image/.style={state, fill=gray!15},
+        created/.style={state, fill=yellow!20},
+        running/.style={state, fill=green!25},
+        paused/.style={state, fill=blue!20},
+        exited/.style={state, fill=orange!25},
+        arrow/.style={-Latex, thick, font=\scriptsize}
+    ]
+        \node[image]   (img)                            {Imagen};
+        \node[created] (crt) [right=1.2cm of img]       {Created};
+        \node[running] (run) [right=1.6cm of crt]       {Running};
+        \node[exited]  (exi) [right=1.6cm of run]       {Exited};
+        \node[paused]  (pau) [below=1.3cm of run]       {Paused};
+        \node[state, fill=red!15] (del) [right=1.2cm of exi] {borrado};
+
+        \draw[arrow] (img) -- node[above]{\texttt{create}} (crt);
+        \draw[arrow] (crt) -- node[above]{\texttt{start}} (run);
+        \draw[arrow, bend left=45] (img.north) to node[above, font=\scriptsize]{\texttt{run} (= \texttt{create} + \texttt{start})} (run.north);
+        \draw[arrow, bend left=18] (run) to node[above]{\texttt{stop} / \texttt{kill}} (exi);
+        \draw[arrow, bend left=18] (exi) to node[below]{\texttt{start} / \texttt{restart}} (run);
+        \draw[arrow, bend right=15] (run) to node[left]{\texttt{pause}} (pau);
+        \draw[arrow, bend right=15] (pau) to node[right]{\texttt{unpause}} (run);
+        \draw[arrow] (exi) -- node[above, font=\scriptsize]{\texttt{rm}} (del);
+    \end{tikzpicture}
+    \end{center}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Ciclo de vida de un contenedor}
+    \framesubtitle{Notas}
+
+    \begin{block}{\texttt{docker start} vs \texttt{docker run}}
+        \begin{itemize}
+            \item \texttt{run} \textbf{crea un contenedor nuevo} a partir de una imagen.
+            \item \texttt{start} \textbf{reusa un contenedor existente} (en estado \textit{Created} o \textit{Exited}) y lo pasa a \textit{Running}, conservando su filesystem, nombre y configuración. No crea uno nuevo.
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{\texttt{docker pause} vs \texttt{docker stop}}
+        \begin{itemize}
+            \item \texttt{pause} \textbf{congela} los procesos del contenedor (usando el \textit{cgroup freezer} del kernel). No los mata: siguen en memoria pero no consumen CPU. \texttt{unpause} los reanuda desde donde quedaron.
+            \item \texttt{stop} \textbf{termina} el proceso principal: manda \texttt{SIGTERM} y espera unos segundos antes de \texttt{SIGKILL}. El contenedor queda en \textit{Exited}.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% ---------------------------------------------------- %
+
 \input{conceptos_previos}
 
 % ---------------------------------------------------- %
