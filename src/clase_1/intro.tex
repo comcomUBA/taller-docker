@@ -12,6 +12,119 @@
     
 \end{frame}
 
+\begin{frame}
+    \frametitle{Arquitectura típica de una app web}
+    \framesubtitle{¿Quién habla con quién?}
+
+    \begin{center}
+    \begin{tikzpicture}[
+        node distance=0.8cm,
+        every node/.style={align=center, font=\small},
+        block/.style={rectangle, draw, rounded corners, minimum width=2cm, minimum height=1.2cm, fill=blue!10},
+        user/.style={rectangle, draw, rounded corners, minimum width=2cm, minimum height=1.2cm, fill=orange!20},
+        db/.style={cylinder, shape border rotate=90, aspect=0.3, draw, minimum width=1.8cm, minimum height=1.4cm, fill=green!15},
+        arrow/.style={-Latex, thick}
+    ]
+        \node[user] (user) {Usuario\\(navegador)};
+        \node[block, right=of user] (front) {Frontend};
+        \node[block, right=of front] (back) {Backend};
+        \node[db, right=of back] (db) {Base de\\datos};
+
+        \draw[arrow] (user) -- (front);
+        \draw[arrow] (front) -- (back);
+        \draw[arrow] (back) -- (db);
+    \end{tikzpicture}
+    \end{center}
+
+    \begin{itemize}
+        \item El \textbf{usuario} abre el navegador y entra a la página.
+        \item El \textbf{frontend} muestra la interfaz y manda pedidos al backend.
+        \item El \textbf{backend} procesa la lógica y pide/guarda datos.
+        \item La \textbf{base de datos} persiste la información.
+    \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Frontend}
+    \framesubtitle{Lo que ve el usuario}
+
+    \begin{block}{¿Qué es?}
+        La parte de la aplicación que corre en el \textbf{navegador} y muestra la interfaz al usuario.
+    \end{block}
+
+    \begin{itemize}
+        \item Se encarga de mostrar botones, formularios, gráficos, etc.
+        \item Captura la interacción del usuario (clicks, teclas) y la manda al backend.
+        \item Tecnologías típicas: HTML, CSS, JavaScript, React, Vue, Angular.
+    \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Backend}
+    \framesubtitle{El cerebro del lado del servidor}
+
+    \begin{block}{¿Qué es?}
+        El \textbf{programa que corre en un servidor} y responde a los pedidos del frontend.
+    \end{block}
+
+    \begin{itemize}
+        \item Procesa la lógica de negocio (reglas, cálculos, autenticación).
+        \item Habla con la base de datos para leer o guardar información.
+        \item Tecnologías típicas: \textbf{Node.js}, Python (Flask, Django), Java (Spring), Ruby (Rails).
+    \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Base de datos}
+    \framesubtitle{Donde queda guardada la info}
+
+    \begin{block}{¿Qué es?}
+        Un sistema especializado en \textbf{almacenar y consultar información} de manera persistente.
+    \end{block}
+
+    \begin{itemize}
+        \item Los datos sobreviven aunque el backend se reinicie.
+        \item Ejemplos relacionales: \textbf{PostgreSQL}, MySQL, SQLite.
+        \item Ejemplos no relacionales: MongoDB, \textbf{Redis} (cache, clave-valor).
+    \end{itemize}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{¿Qué es un servidor?}
+    \framesubtitle{El protagonista del ejemplo}
+
+    \begin{block}{Definición}
+        Un \textbf{servidor} es un programa que está \textbf{siempre prendido}, esperando pedidos y respondiéndolos.
+    \end{block}
+
+    \begin{center}
+    \begin{tikzpicture}[
+        every node/.style={align=center, font=\small},
+        box/.style={rectangle, draw, rounded corners, minimum width=2.8cm, minimum height=1.3cm},
+        arrow/.style={-Latex, thick}
+    ]
+        \node[box, fill=orange!20] (client) {Cliente\\(navegador, curl...)};
+        \node[box, fill=blue!15, right=3cm of client] (server) {Servidor\\(nuestro programa)};
+
+        \draw[arrow] ([yshift=6pt]client.east) -- node[above, font=\footnotesize]{pedido (request)} ([yshift=6pt]server.west);
+        \draw[arrow] ([yshift=-6pt]server.west) -- node[below, font=\footnotesize]{respuesta (response)} ([yshift=-6pt]client.east);
+    \end{tikzpicture}
+    \end{center}
+
+    \begin{itemize}
+        \item No hace nada hasta que alguien lo "llama".
+        \item Una misma máquina puede tener muchos servidores corriendo a la vez.
+    \end{itemize}
+\end{frame}
+
 \begin{frame}{Ejemplo de Aplicación: Análisis de Imágenes Médicas}
     \begin{block}{Objetivo}
         Sistema web que permite a profesionales médicos subir imágenes radiográficas
@@ -137,32 +250,34 @@
 
 \begin{frame}
         \frametitle{Contenedores}
-        \framesubtitle{Definición}
-    
+        \framesubtitle{¿Qué es un contenedor?}
+
         \begin{itemize}
-            \item ¿Es un tipo de virtualización? \pause No, no son una virtualización completa. \pause
-            \item ¿Cómo funciona? \pause Se apoya en funciones del kernel de linux (como Namespaces, Cgroups y OverlayFS). \pause
+            \item Un contenedor es un \textbf{proceso} que corre aislado del resto del sistema, con la ilusión de tener su propio filesystem, red y lista de procesos.
+            \item Analogía: un \textit{departamento dentro de un edificio}. Comparte la estructura (el kernel del host) con los otros departamentos, pero cada uno tiene su espacio propio y no ve a los demás.
+            \item Se arma arrancando un proceso común y pidiéndole al kernel que lo aísle con ciertas funciones.
         \end{itemize}
-    
+
         \begin{figure}
             \captionsetup{
                 justification=centering,
                 font=scriptsize,
                 width=0.8\textwidth
             }
-            \includegraphics[width=0.6\textwidth]{images/container_com_0.pdf}
+            \includegraphics[height=0.3\textheight, keepaspectratio]{images/container_com_0.pdf}
         \end{figure}
     \end{frame}
 % ---------------------------------------------------------------------------- %
     \begin{frame}
         \frametitle{Contenedores}
-        \framesubtitle{Definición}
-    
+        \framesubtitle{Contenedor vs máquina virtual}
+
         \begin{itemize}
-            \item ¿Es un tipo de virtualización? No, no son una virtualización completa
-            \item ¿Cómo funciona? Se apoya en funciones del kernel de linux (como Namespaces, Cgroups y OverlayFS)
+            \item Una \textbf{VM} virtualiza una computadora entera: trae su propio kernel, su propio SO, emula hardware. Pesada y lenta de arrancar.
+            \item Un \textbf{contenedor} reusa el kernel del host. No emula hardware ni arranca otro SO. Mucho más liviano y rápido.
+            \item Por eso podés tener decenas de contenedores donde apenas entrarían unas pocas VMs.
         \end{itemize}
-    
+
         \begin{figure}
             \captionsetup{
                 justification=centering,
@@ -175,15 +290,22 @@
 % ---------------------------------------------------------------------------- %
     \begin{frame}
         \frametitle{Contenedores}
-        \framesubtitle{Definición}
-        
+        \framesubtitle{¿Cómo logra el aislamiento? (Linux)}
+
+        \begin{itemize}
+            \item \textbf{Namespaces} $\rightarrow$ aíslan lo que el contenedor \textit{ve}: procesos, red, usuarios, montajes. Dentro del contenedor no aparecen los procesos del host.
+            \item \textbf{Cgroups} $\rightarrow$ limitan lo que el contenedor \textit{consume}: CPU, memoria, disco, red. Evitan que un contenedor se coma toda la máquina.
+            \item \textbf{OverlayFS} $\rightarrow$ permite armar filesystems en \textbf{capas} apiladas. Varias imágenes pueden compartir capas base y ahorrar espacio.
+        \end{itemize}
+    \end{frame}
+% ---------------------------------------------------------------------------- %
+    \begin{frame}
+        \frametitle{Contenedores}
+        \framesubtitle{Vista general}
+
         \begin{figure}
-            \captionsetup{
-                justification=centering,
-                font=scriptsize,
-                width=0.8\textwidth
-            }
-            \includegraphics[width=\textwidth]{images/container_so_hosted.pdf}
+            \centering
+            \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{images/container_so_hosted.pdf}
         \end{figure}
     \end{frame}
 % ---------------------------------------------------------------------------- %
@@ -191,18 +313,19 @@
 % ---------------------------------------------------------------------------- %
     \begin{frame}
         \frametitle{Imágenes}
-        \framesubtitle{Definición}
-    
+        \framesubtitle{¿Qué es una imagen de Docker?}
+
         \begin{itemize}
-            \item Imágen de VM (VM Image): \pause Es un archivo que contiene un disco virtual que tiene instalado un sistema operativo, que el hipervisor la arranca como si fuese un servidor físico. \pause
-            \item Imagen de container (Container Image): \pause Es es un archivo que incluye todos los archivos, binarios, bibliotecas y configuraciones, para poder ejecutar un contenedor a través de un container engine. \pause
+            \item Una \textbf{imagen} es un archivo (un paquete) que contiene \textbf{todo lo necesario} para correr una aplicación: código, librerías, binarios del sistema, dependencias y configuración.
+            \item Es \textbf{estática}: no corre por sí sola. Es la "plantilla" a partir de la cual se crean los contenedores.
+            \item Un \textbf{contenedor} es la \textbf{ejecución activa} de una imagen. De una sola imagen podés lanzar muchos contenedores.
         \end{itemize}
-        \begin{block}{Imagen}
-            Una imagen puede tener:
+
+        \begin{block}{Una imagen de Docker contiene típicamente}
             \begin{itemize}
-                \item SO
-                \item Software
-                \item App
+                \item Una base del sistema (ej: Debian, Alpine).
+                \item Software y runtimes (ej: Python, Node).
+                \item Tu aplicación y sus dependencias.
             \end{itemize}
         \end{block}
     \end{frame}
@@ -265,9 +388,45 @@
     \end{itemize}
 
     \begin{block}{Enfoque}
-        Aunque existen muchas opciones, 
+        Aunque existen muchas opciones,
         \textbf{Docker Hub es el estándar de facto} y el que usaremos en este taller.
     \end{block}
+\end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{¿Cómo encuentra Docker las imágenes?}
+    \framesubtitle{Autenticación y flujo de búsqueda}
+
+    \begin{block}{\texttt{docker login}}
+        Autentica tu máquina contra un registry (por defecto Docker Hub). Hace falta para \textbf{subir} imágenes propias o para \textbf{bajar} de repositorios privados. Las imágenes públicas se pueden descargar sin loguearse.
+    \end{block}
+
+    \begin{center}
+    \begin{tikzpicture}[
+        every node/.style={align=center, font=\footnotesize},
+        box/.style={rectangle, draw, rounded corners, minimum width=2.2cm, minimum height=0.9cm},
+        local/.style={box, fill=blue!15},
+        cloud/.style={box, fill=orange!15},
+        arrow/.style={-Latex, thick}
+    ]
+        \node[local] (run) {\texttt{docker run}};
+        \node[local, right=1cm of run] (cache) {Cache local\\(tu máquina)};
+        \node[cloud, right=1cm of cache] (reg) {Registry\\(Docker Hub)};
+
+        \draw[arrow] (run) -- (cache);
+        \draw[arrow] (cache) -- node[above, font=\scriptsize]{si falta} node[below, font=\scriptsize]{(pull)} (reg);
+    \end{tikzpicture}
+    \end{center}
+
+    \begin{enumerate}
+        \item Docker busca la imagen en el \textbf{cache local} (las que ya descargaste).
+        \item Si no está, la \textbf{descarga (pull)} del registry y la guarda en el cache.
+        \item \textbf{Ejecuta} el contenedor a partir de la imagen local.
+    \end{enumerate}
+
+    \small La primera corrida tarda más porque se baja la imagen; las siguientes son inmediatas porque ya está cacheada.
 \end{frame}
 
 % ---------------------------------------------------- %
@@ -288,8 +447,12 @@
         \end{itemize}
     \end{block}
         
-        \footnotetext{\textbf{https://docs.docker.com/reference/cli/docker/}}   
+        \footnotetext{\textbf{https://docs.docker.com/reference/cli/docker/}}
 \end{frame}
+
+% ---------------------------------------------------- %
+
+\input{conceptos_previos}
 
 % ---------------------------------------------------- %
 
@@ -309,6 +472,41 @@
         \end{block}
         \footnotetext{\textbf{https://docs.docker.com/reference/dockerfile/}}   
     \end{frame}
+
+% ---------------------------------------------------- %
+
+\begin{frame}
+    \frametitle{Imágenes por capas (layers)}
+    \framesubtitle{Cómo se construyen y reutilizan}
+
+    Una imagen no es un archivo único: es una \textbf{pila de capas}. Cada instrucción del Dockerfile (\texttt{FROM}, \texttt{RUN}, \texttt{COPY}...) genera una capa sobre la anterior.
+
+    \vspace{0.2cm}
+    \begin{columns}[T]
+        \begin{column}{0.42\textwidth}
+            \begin{center}
+            \begin{tikzpicture}[
+                every node/.style={align=center, font=\scriptsize},
+                layer/.style={rectangle, draw, minimum width=3.8cm, minimum height=0.5cm}
+            ]
+                \node[layer, fill=red!15]    at (0, 1.5) {\texttt{CMD ["python", "app.py"]}};
+                \node[layer, fill=orange!15] at (0, 1.0) {\texttt{COPY app.py .}};
+                \node[layer, fill=yellow!15] at (0, 0.5) {\texttt{RUN pip install ...}};
+                \node[layer, fill=green!15]  at (0, 0.0) {\texttt{FROM python:3.12-slim}};
+            \end{tikzpicture}
+            \end{center}
+        \end{column}
+        \begin{column}{0.58\textwidth}
+            \footnotesize
+            \begin{itemize}
+                \item Cada capa es \textbf{read-only}, identificada por un hash.
+                \item Se \textbf{comparten entre imágenes}: la misma base se guarda una sola vez.
+                \item Docker \textbf{cachea} las capas: si una instrucción no cambió, la reutiliza.
+                \item \textbf{Tip}: poné lo que cambia poco (dependencias) antes que lo que cambia seguido (\texttt{COPY} del código).
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
 
 % ---------------------------------------------------- %
 
